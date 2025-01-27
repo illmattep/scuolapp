@@ -1,0 +1,85 @@
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+/* light.css or dark.css */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy-Light.woff') format('woff'),
+        url('/static/fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+  /* Apply the font globally */
+* {
+    font-family: 'Gilroy', sans-serif;
+}
+
+
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+.bg-primary {
+    background-color: #171717; /* Primary background */
+}
+
+.bg-secondary {
+    background-color: #111; /* Secondary background */
+}
+
+.bg-tertiary {
+    background-color: #141414; /* Tertiary background */
+}
+
+.bg-success {
+    background-color: #56a05a; /* Success background */
+}
+
+.bg-danger {
+    background-color: #e65250; /* Danger background */
+}
+
+.bg-warning {
+    background-color: #d19751; /* Warning background */
+}
+
+.bg-info {
+    background-color: #56b1db; /* Info background */
+}
+
+
+.text-primary {
+    color: #000000; /* Primary text */
+}
+
+.text-secondary {
+    color: #ffffff; /* Secondary text */
+}
+
+.text-success {
+    color: #56a05a; /* Success text */
+}
+
+.text-danger {
+    color: #e65250; /* Danger text */
+}
+
+.text-warning {
+    color: #d19751; /* Warning text */
+}
+
+.text-info {
+    color: #56b1db; /* Info text */
+}
+
+.rounded-big {
+    border-radius: 2rem;
+}

@@ -1,0 +1,43 @@
+<!-- templates/sidebar.html -->
+<!-- Sidebar -->
+<div id="sidebar" class="hidden md:flex flex-col justify-between w-full md:w-1/6 bg-secondary text-primary p-6 h-screen fixed left-0 top-0 z-50">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+        <button id="close-sidebar" class="absolute top-4 right-4 bg-warning rounded-md md:hidden" onclick="toggleSidebar()">✖</button>
+        <h2 class="text-2xl font-extrabold mb-6 text-secondary">Scuolapp</h2>
+    </div>
+    
+    <!-- Sidebar Top -->
+    <div class="sidebar-top">
+        <ul class="text-secondary space-y-2">
+            <li><a href="/home" class="block py-3 font-bold bg-tertiary px-4 rounded-lg {% if request.path == '/home' %}border border-white border-opacity-10{% endif %}">Home 🏠</a></li>
+            <li><a href="/chat" class="block py-3 font-bold bg-tertiary px-4 rounded-lg {% if request.path == '/chat' %}border border-white border-opacity-10{% endif %}">Live chat 💬</a></li>
+            <li><a href="/about" class="block py-3 font-bold bg-tertiary px-4 rounded-lg {% if request.path == '/about' %}border border-white border-opacity-10{% endif %}">About ⚡</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="/admin" class="block py-3 font-bold bg-tertiary px-4 rounded-lg {% if request.path == '/admin' %}border border-white border-opacity-10{% endif %}">Admin Panel 🛠️</a></li>
+        {% endif %}
+    </ul>
+    </div>
+    
+    <!-- Sidebar Bottom -->
+    <div class="sidebar-bottom mt-auto">
+        <a href="/account" class="block py-3 font-bold bg-warning px-4 rounded-lg w-full">Account 👤</a>
+    </div>
+</div>
+
+<!-- Burger Menu Button -->
+<button id="burger-menu" class="md:hidden p-2 bg-info rounded-lg fixed top-5 left-5" onclick="toggleSidebar()">☰</button>
+
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.classList.contains('hidden')) {
+        sidebar.classList.remove('hidden');
+        sidebar.classList.add('flex');
+        
+    } else {
+        sidebar.classList.add('hidden');
+        sidebar.classList.remove('flex');
+    }
+}
+</script>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary flex items-center justify-center h-screen w-screen">
+    <div class="bg-secondary p-8 rounded-big shadow-lg h-full w-full max-w-md mx-auto my-auto px-auto py-auto">
+        <div class="flex justify-center mb-6">
+            <img src="{{ url_for('static', filename='images/image.png') }}" alt="Logo" class="h-24 w-24">
+        </div>
+        <h2 class="text-2xl font-bold mb-6 text-center text-secondary">Register</h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="mb-4">
+                {% for category, message in messages %}
+                    <li class="p-2 mb-2 text-secondary rounded {% if category == 'error' %}bg-danger{% elif category == 'warning' %}bg-warning{% else %}bg-success{% endif %}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('auth.register') }}">
+            {{ form.hidden_tag() }}
+            <div class="mb-4">
+                <label for="username" class="block text-secondary">Username</label>
+                {{ form.username(class="w-full p-2 border border-white border-opacity-50 rounded mt-1 bg-primary text-secondary bg-tertiary") }}
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-secondary">Password</label>
+                {{ form.password(class="w-full p-2 border border-white border-opacity-50 rounded mt-1 bg-primary text-secondary bg-tertiary") }}
+            </div>
+            <div class="mb-6">
+                <label for="confirm_password" class="block text-secondary">Confirm Password</label>
+                {{ form.confirm_password(class="w-full p-2 border border-white border-opacity-50 rounded mt-1 bg-primary text-secondary bg-tertiary") }}
+            </div>
+            <div>
+                <button type="submit" class="w-full bg-info text-secondary p-2 rounded hover:bg-info">Register</button>
+            </div>
+        </form>
+        <p class="mt-4 text-center text-secondary">Already have an account? <a href="{{ url_for('auth.login') }}" class="text-info hover:underline">Login here</a></p>
+    </div>
+</body>
+</html>
+{% endblock %}

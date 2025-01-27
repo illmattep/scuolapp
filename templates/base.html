@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Default theme is set based on localStorage -->
+    <link id="theme-stylesheet" rel="stylesheet" href="/static/themes/light.css">
+    <script type="module" src="{{ url_for('static', filename='js/themes.js') }}"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="font-sans antialiased bg-primary text-secondary">
+    <div class="flex">
+        <!-- Main content -->
+        <div class="flex-1 p-4 bg-primary text-secondary">
+            <!-- Content here -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center text-primary">
+{% if user.is_authenticated %}
+    <p >Welcome back, {{ user.username }}!</p>
+    <p>Your role: {{ user.role }}</p>
+    <p>can post: {{ user.can_post }}</p>
+{% endif %}
+</div>
+{% with user=user %}
+    {% include 'components/sidebar.html' %}
+{% endwith %}
+{% endblock %}
